@@ -89,7 +89,11 @@ export type DomainConfig = {
 const months = ["Mar", "Apr", "May", "Jun", "Jul", "Aug"];
 
 const mk = (vals: number[], sec?: number[]): TrendPoint[] =>
-  vals.map((v, i) => ({ label: months[i] ?? `T${i}`, value: v, secondary: sec?.[i] }));
+  vals.map((v, i) => {
+    const point: TrendPoint = { label: months[i] ?? `T${i}`, value: v };
+    if (sec?.[i] !== undefined) point.secondary = sec[i];
+    return point;
+  });
 
 export const domains: DomainConfig[] = [
   {
