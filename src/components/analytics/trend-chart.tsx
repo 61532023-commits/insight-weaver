@@ -61,7 +61,15 @@ export function DualTrendChart({
           </defs>
           <CartesianGrid stroke="var(--color-border)" strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={11} stroke="var(--color-muted-foreground)" />
-          <YAxis tickLine={false} axisLine={false} fontSize={11} stroke="var(--color-muted-foreground)" />
+          <YAxis yAxisId="left" tickLine={false} axisLine={false} fontSize={11} stroke="var(--color-muted-foreground)" />
+          <YAxis
+            yAxisId="right"
+            orientation="right"
+            tickLine={false}
+            axisLine={false}
+            fontSize={11}
+            stroke="var(--color-muted-foreground)"
+          />
           <Tooltip
             contentStyle={{
               background: "var(--color-popover)",
@@ -72,6 +80,7 @@ export function DualTrendChart({
             }}
           />
           <Area
+            yAxisId="left"
             type="monotone"
             name={primaryLabel}
             dataKey="value"
@@ -80,6 +89,7 @@ export function DualTrendChart({
             fill="url(#macroPrimary)"
           />
           <Line
+            yAxisId="right"
             type="monotone"
             name={secondaryLabel}
             dataKey="secondary"
