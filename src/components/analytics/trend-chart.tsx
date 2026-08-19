@@ -53,7 +53,7 @@ export function DualTrendChart({
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer width="99%" height="100%" debounce={1}>
-        <ComposedChart data={points} margin={{ top: 8, right: 0, bottom: 0, left: -16 }}>
+        <ComposedChart data={points} margin={{ top: 8, right: 4, bottom: 0, left: -16 }}>
           <defs>
             <linearGradient id="macroPrimary" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="var(--color-chart-1)" stopOpacity={0.4} />
@@ -66,6 +66,8 @@ export function DualTrendChart({
           <YAxis
             yAxisId="right"
             orientation="right"
+            width={40}
+            domain={["dataMin - 8", "dataMax + 8"]}
             tickLine={false}
             axisLine={false}
             fontSize={11}
