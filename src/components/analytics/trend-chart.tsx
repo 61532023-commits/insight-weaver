@@ -53,7 +53,7 @@ export function DualTrendChart({
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer width="99%" height="100%" debounce={1}>
-        <ComposedChart data={points} margin={{ top: 8, right: 4, bottom: 0, left: -16 }}>
+        <ComposedChart data={points} margin={{ top: 8, right: 8, bottom: 0, left: -16 }}>
           <defs>
             <linearGradient id="macroPrimary" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="var(--color-chart-1)" stopOpacity={0.4} />
@@ -98,8 +98,8 @@ export function DualTrendChart({
             dataKey="secondary"
             stroke="var(--color-chart-2)"
             strokeWidth={2}
-            strokeDasharray="4 3"
             dot={false}
+            isAnimationActive={false}
           />
         </ComposedChart>
       </ResponsiveContainer>
