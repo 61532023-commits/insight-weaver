@@ -91,7 +91,8 @@ const months = ["Mar", "Apr", "May", "Jun", "Jul", "Aug"];
 const mk = (vals: number[], sec?: number[]): TrendPoint[] =>
   vals.map((v, i) => {
     const point: TrendPoint = { label: months[i] ?? `T${i}`, value: v };
-    if (sec?.[i] !== undefined) point.secondary = sec[i];
+    const s2 = sec?.[i];
+    if (s2 !== undefined) point.secondary = s2;
     return point;
   });
 
